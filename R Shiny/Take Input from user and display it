@@ -1,0 +1,17 @@
+library(shiny)
+ui <- fluidPage(
+  # CODE BELOW: Add a text input "name"
+  textInput('name','Enter your Name'), #important to add ',' here
+  textOutput("David") #default value
+  
+)
+server <- function(input, output, session)
+{
+  output$David <- renderText
+  (
+    {
+      paste("Hello",input$name)
+    }
+  )
+}
+shinyApp(ui = ui, server = server)
